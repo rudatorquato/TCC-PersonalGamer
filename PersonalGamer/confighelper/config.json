@@ -1,0 +1,6 @@
+{
+    //"Port": 8000,
+    "Static_Variable": "static",
+    "Connection_String":"mongodb://localhost:27017" 
+
+}
