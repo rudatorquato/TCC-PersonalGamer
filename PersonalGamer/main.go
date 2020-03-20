@@ -100,13 +100,14 @@ func getUserQrcode(w http.ResponseWriter, r *http.Request) {
 
 	json.NewEncoder(w).Encode(users)
 
-	qrCode, _ := qr.Encode(users.Name, qr.M, qr.Auto)
+	//trnho que converter o json para string para gerar o QRCODE de todos os
+	qrCode, _ := qr.Encode(users.Traning.NameTraning, qr.M, qr.Auto)
 
 	// Scale the barcode to 200x200 pixels
 	qrCode, _ = barcode.Scale(qrCode, 200, 200)
 
 	// create the output file
-	file, _ := os.Create("qrcode.png")
+	file, _ := os.Create("qrcode/qrcode.png")
 	defer file.Close()
 
 	// encode the barcode as png
