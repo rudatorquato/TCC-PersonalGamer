@@ -4,44 +4,44 @@ import "go.mongodb.org/mongo-driver/bson/primitive"
 
 type Users struct {
 	ID        primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
-	Name      string             `bson:"name,omitempty" json:"name,omitempty"`
-	Email     string             `bson:"email,omitempty" json:"email,omitempty"`
-	Telephone string             `bson:"telephone,omitempty" json:"telephone,omitempty"`
-	Info      string             `bson:"info,omitempty" json:"info,omitempty"`
-	TypeUser  string             `bson:"typeuser,omitempty" json:"typeuser,omitempty"` // pode ser um bool porem não aparece no bd
+	Name      string             `bson:"name" json:"name"`
+	Email     string             `bson:"email" json:"email"`
+	Telephone string             `bson:"telephone" json:"telephone"`
+	Info      string             `bson:"info" json:"info"`
+	TypeUser  string             `bson:"typeuser" json:"typeuser"` // pode ser um bool porem não aparece no bd
 
-	Traning  *Traning  `bson:"traning,omitempty" json:"traning,omitempty"`
-	Measures *Measures `bson:"measures,omitempty" json:"measures,omitempty"`
+	Traning  *Traning  `bson:"traning" json:"traning"`
+	Measures *Measures `bson:"measures" json:"measures"`
 }
 
 type Measures struct {
-	Weight        float32 `bson:"weight,omitempty" json:"weight,omitempty"`
-	Stature       float32 `bson:"stature,omitempty" json:"stature,omitempty"`
-	Shoulder      float32 `bson:"shoulder,omitempty" json:"shoulder,omitempty"`
-	InspiredChest float32 `bson:"inspired_chest,omitempty" json:"inspired_chest,omitempty"`
-	RelaxedArm    float32 `bson:"relaxed_arm,omitempty" json:"relaxed_arm,omitempty"`
-	Thigh         float32 `bson:"thigh,omitempty" json:"thigh,omitempty"`
-	Forearm       float32 `bson:"forearm,omitempty" json:"forearm,omitempty"`
-	ContractedArm float32 `bson:"contracted_arm,omitempty" json:"contracted_arm,omitempty"`
-	Waist         float32 `bson:"waist,omitempty" json:"waist,omitempty"`
-	Abdomen       float32 `bson:"abdomen,omitempty" json:"abdomen,omitempty"`
-	Hip           float32 `bson:"hip,omitempty" json:"hip,omitempty"`
-	Leg           float32 `bson:"leg,omitempty" json:"leg,omitempty"`
+	Weight        float32 `bson:"weight" json:"weight"`
+	Stature       float32 `bson:"stature" json:"stature"`
+	Shoulder      float32 `bson:"shoulder" json:"shoulder"`
+	InspiredChest float32 `bson:"inspired_chest" json:"inspired_chest"`
+	RelaxedArm    float32 `bson:"relaxed_arm" json:"relaxed_arm"`
+	Thigh         float32 `bson:"thigh" json:"thigh"`
+	Forearm       float32 `bson:"forearm" json:"forearm"`
+	ContractedArm float32 `bson:"contracted_arm" json:"contracted_arm"`
+	Waist         float32 `bson:"waist" json:"waist"`
+	Abdomen       float32 `bson:"abdomen" json:"abdomen"`
+	Hip           float32 `bson:"hip" json:"hip"`
+	Leg           float32 `bson:"leg" json:"leg"`
 }
 
 type Traning struct {
-	Sequence   int    `bson:"sequence,omitempty" json:"sequence,omitempty"`
-	Place      string `bson:"place,omitempty" json:"place,omitempty"`
-	Exercise   string `bson:"exercise,omitempty" json:"exercise,omitempty"`
-	Series     int    `bson:"series,omitempty" json:"series,omitempty"`
-	Repetition int    `bson:"repetition,omitempty" json:"repetition,omitempty"`
-	Charge     int    `bson:"charge,omitempty" json:"charge,omitempty"`
+	Sequence   int    `bson:"sequence" json:"sequence"`
+	Place      string `bson:"place" json:"place"`
+	Exercise   string `bson:"exercise" json:"exercise"`
+	Series     int    `bson:"series" json:"series"`
+	Repetition int    `bson:"repetition" json:"repetition"`
+	Charge     int    `bson:"charge" json:"charge"`
 
-	QrCode *QrCode `bson:"qrcode,omitempty" json:"qrcode,omitempty"`
+	QrCode *QrCode `bson:"qrcode" json:"qrcode"`
 }
 
 type QrCode struct {
-	Images       string `bson:"Images,omitempty" json:"Images,omitempty"` //jsonb
-	Links        string `bson:"links,omitempty" json:"links,omitempty"`
-	ImagesQrcode string `bson:"ImagesQrcode,omitempty" json:"ImagesQrcode,omitempty"` //jsonb
+	Images       string `bson:"Images" json:"Images"` //jsonb
+	Links        string `bson:"links" json:"links"`
+	ImagesQrcode string `bson:"ImagesQrcode" json:"ImagesQrcode"` //jsonb
 }
