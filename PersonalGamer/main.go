@@ -4,12 +4,16 @@ import (
 	//. "PersonalGamer/models"
 	"PersonalGamer/helper"
 	"PersonalGamer/models"
+	"image/png"
+	"os"
 
 	"context"
 	"encoding/json"
 	"log"
 	"net/http"
 
+	"github.com/boombuler/barcode"
+	"github.com/boombuler/barcode/qr"
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -71,6 +75,42 @@ func getUserName(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(users)
+	log.Println(users.Name)
+}
+
+func getUserQrcode(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Type", "application/json")
+
+	var users models.Users
+
+	var params = mux.Vars(r)
+
+	id, _ := primitive.ObjectIDFromHex(params["id"])
+
+	collection := helper.ConnectDB()
+
+	filter := bson.M{"_id": id}
+	err := collection.FindOne(context.TODO(), filter).Decode(&users)
+
+	if err != nil {
+		helper.GetError(err, w)
+		return
+	}
+
+	json.NewEncoder(w).Encode(users)
+
+	qrCode, _ := qr.Encode(users.Name, qr.M, qr.Auto)
+
+	// Scale the barcode to 200x200 pixels
+	qrCode, _ = barcode.Scale(qrCode, 200, 200)
+
+	// create the output file
+	file, _ := os.Create("qrcode.png")
+	defer file.Close()
+
+	// encode the barcode as png
+	png.Encode(file, qrCode)
 }
 
 func createUsers(w http.ResponseWriter, r *http.Request) {
@@ -254,11 +294,11 @@ func main() {
 	//Init Router
 	r := mux.NewRouter()
 
-	r.HandleFunc("/personalgamer/users", getUsers).Methods("GET")         //aluno
-	r.HandleFunc("/personalgamer/users/{id}", getUserName).Methods("GET") //personal
+	r.HandleFunc("/personalgamer/users", getUsers).Methods("GET")            //aluno
+	r.HandleFunc("/personalgamer/users/{id}", getUserName).Methods("GET")    //personal
+	r.HandleFunc("/personalgamer/QRCODE/{id}", getUserQrcode).Methods("GET") //personal
 	r.HandleFunc("/personalgamer/users", createUsers).Methods("POST")
 	r.HandleFunc("/personalgamer/users/measures/{id}", updateMeasures).Methods("PUT")
-	//problema pra depois se não colocar todos os campos ele coloca um valor vazio
 	r.HandleFunc("/personalgamer/users/traning/{id}", updateTraning).Methods("PUT") //personal
 	r.HandleFunc("/personalgamer/users/{id}", updateUsers).Methods("PUT")           //personal
 	r.HandleFunc("/personalgamer/users/{id}", deleteUsers).Methods("DELETE")        //personal

@@ -30,12 +30,13 @@ type Measures struct {
 }
 
 type Traning struct {
-	Sequence   int    `bson:"sequence" json:"sequence"`
-	Place      string `bson:"place" json:"place"`
-	Exercise   string `bson:"exercise" json:"exercise"`
-	Series     int    `bson:"series" json:"series"`
-	Repetition int    `bson:"repetition" json:"repetition"`
-	Charge     int    `bson:"charge" json:"charge"`
+	NameTraning string `bson:"name_traning" json:"name_traning"`
+	Sequence    int    `bson:"sequence" json:"sequence"`
+	Place       string `bson:"place" json:"place"`
+	Exercise    string `bson:"exercise" json:"exercise"`
+	Series      int    `bson:"series" json:"series"`
+	Repetition  int    `bson:"repetition" json:"repetition"`
+	Charge      int    `bson:"charge" json:"charge"`
 
 	QrCode *QrCode `bson:"qrcode" json:"qrcode"`
 }
