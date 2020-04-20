@@ -99,7 +99,7 @@ func getUserQrcode(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(users)
-
+	log.Println(users)
 	//trnho que converter o json para string para gerar o QRCODE de todos os
 	qrCode, _ := qr.Encode(users.Traning.NameTraning, qr.M, qr.Auto)
 

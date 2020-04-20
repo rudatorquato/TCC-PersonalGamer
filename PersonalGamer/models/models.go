@@ -15,18 +15,23 @@ type Users struct {
 }
 
 type Measures struct {
-	Weight        float32 `bson:"weight" json:"weight"`
-	Stature       float32 `bson:"stature" json:"stature"`
-	Shoulder      float32 `bson:"shoulder" json:"shoulder"`
-	InspiredChest float32 `bson:"inspired_chest" json:"inspired_chest"`
-	RelaxedArm    float32 `bson:"relaxed_arm" json:"relaxed_arm"`
-	Thigh         float32 `bson:"thigh" json:"thigh"`
-	Forearm       float32 `bson:"forearm" json:"forearm"`
-	ContractedArm float32 `bson:"contracted_arm" json:"contracted_arm"`
-	Waist         float32 `bson:"waist" json:"waist"`
-	Abdomen       float32 `bson:"abdomen" json:"abdomen"`
-	Hip           float32 `bson:"hip" json:"hip"`
-	Leg           float32 `bson:"leg" json:"leg"`
+	Weight             float32 `bson:"weight" json:"weight"`
+	Stature            float32 `bson:"stature" json:"stature"`
+	Shoulder           float32 `bson:"shoulder" json:"shoulder"`
+	InspiredChest      float32 `bson:"inspired_chest" json:"inspired_chest"`
+	LeftRelaxedArm     float32 `bson:"left_relaxed_arm" json:"left_relaxed_arm"`
+	RightRelaxedArm    float32 `bson:"right_relaxed_arm" json:"right_relaxed_arm"`
+	LeftThigh          float32 `bson:"left_thigh" json:"left_thigh"`
+	RightThigh         float32 `bson:"right_thigh" json:"right_thigh"`
+	LeftForearm        float32 `bson:"left_forearm" json:"left_forearm"`
+	RightForearm       float32 `bson:"right_forearm" json:"right_forearm"`
+	LeftContractedArm  float32 `bson:"left_contracted_arm" json:"left_contracted_arm"`
+	RightContractedArm float32 `bson:"right_contracted_arm" json:"right_contracted_arm"`
+	Waist              float32 `bson:"waist" json:"waist"`
+	Abdomen            float32 `bson:"abdomen" json:"abdomen"`
+	Hip                float32 `bson:"hip" json:"hip"`
+	LeftLeg            float32 `bson:"left_leg" json:"left_leg"`
+	RightLeg           float32 `bson:"right_leg" json:"right_leg"`
 }
 
 type Traning struct {
