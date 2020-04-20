@@ -43,7 +43,7 @@ type Traning struct {
 	Repetition  int    `bson:"repetition" json:"repetition"`
 	Charge      int    `bson:"charge" json:"charge"`
 
-	QrCode *QrCode `bson:"qrcode" json:"qrcode"`
+	//QrCode *QrCode `bson:"qrcode,omitempty" json:"qrcode,omitempty"`
 }
 
 type QrCode struct {

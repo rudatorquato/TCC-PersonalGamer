@@ -75,7 +75,8 @@ func getUserName(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(users)
-	log.Println(users.Name)
+	log.Println(users.Traning)
+	log.Println(users.Traning.Place)
 }
 
 func getUserQrcode(w http.ResponseWriter, r *http.Request) {
@@ -91,6 +92,7 @@ func getUserQrcode(w http.ResponseWriter, r *http.Request) {
 	collection := helper.ConnectDB()
 
 	filter := bson.M{"_id": id}
+
 	err := collection.FindOne(context.TODO(), filter).Decode(&users)
 
 	if err != nil {
@@ -99,9 +101,12 @@ func getUserQrcode(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(users)
-	log.Println(users)
-	//trnho que converter o json para string para gerar o QRCODE de todos os
-	qrCode, _ := qr.Encode(users.Traning.NameTraning, qr.M, qr.Auto)
+	exercícios, err := json.Marshal(users.Traning)
+	//log.Println(string(training))
+
+	//qrCode, _ := qr.Encode(users.Traning.Place, qr.M, qr.Auto)
+	qrCode, _ := qr.Encode(string(exercícios), qr.M, qr.Auto)
+	//log.Println(users.Traning.Place)
 
 	// Scale the barcode to 200x200 pixels
 	qrCode, _ = barcode.Scale(qrCode, 200, 200)
