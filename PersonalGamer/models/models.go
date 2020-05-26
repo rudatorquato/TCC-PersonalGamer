@@ -36,7 +36,7 @@ type Measures struct {
 }
 
 type Traning struct {
-	Images      string `bson:"Images" json:"Images"` //gif
+	Images      string `bson:"images" json:"images"` //gif
 	NameTraning string `bson:"name_traning" json:"name_traning"`
 	Sequence    int    `bson:"sequence" json:"sequence"`
 	Place       string `bson:"place" json:"place"`
