@@ -254,6 +254,7 @@ func updateTraning(w http.ResponseWriter, r *http.Request) {
 	update := bson.D{
 		{"$set", bson.D{
 			{"traning", bson.D{
+				{"Images", users.Traning.Images},
 				{"sequence", users.Traning.Sequence},
 				{"place", users.Traning.Place},
 				{"exercise", users.Traning.Exercise},
