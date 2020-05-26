@@ -9,6 +9,7 @@ type Users struct {
 	Telephone string             `bson:"telephone" json:"telephone"`
 	Info      string             `bson:"info" json:"info"`
 	TypeUser  string             `bson:"typeuser" json:"typeuser"` // pode ser um bool porem não aparece no bd
+	Username  string             `bson:"username" json:"username"`
 
 	Traning  *Traning  `bson:"traning" json:"traning"`
 	Measures *Measures `bson:"measures" json:"measures"`
