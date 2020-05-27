@@ -36,13 +36,13 @@ type Measures struct {
 }
 
 type Traning struct {
-	Images      string `bson:"images" json:"images"` //gif
-	NameTraning string `bson:"name_traning" json:"name_traning"`
+	Images      string `bson:"image" json:"image"` //gif
+	NameTraning string `bson:"training" json:"training"`
 	Sequence    int    `bson:"sequence" json:"sequence"`
 	Place       string `bson:"place" json:"place"`
 	Exercise    string `bson:"exercise" json:"exercise"`
 	Series      int    `bson:"series" json:"series"`
-	Repetition  int    `bson:"repetition" json:"repetition"`
+	Repetition  int    `bson:"repetitions" json:"repetitions"`
 	Charge      int    `bson:"charge" json:"charge"`
 
 	//QrCode *QrCode `bson:"qrcode,omitempty" json:"qrcode,omitempty"`
