@@ -157,7 +157,7 @@ func updateUsers(w http.ResponseWriter, r *http.Request) {
 		{"$set", bson.D{
 			{"name", users.Name},
 			{"email", users.Email},
-			{"telephone", users.Telephone},
+			{"phone", users.Phone},
 			{"info", users.Info},
 			{"typeuser", users.TypeUser},
 			{"username", users.Username},
@@ -254,7 +254,7 @@ func updateTraning(w http.ResponseWriter, r *http.Request) {
 
 	update := bson.D{
 		{"$set", bson.D{
-			{"traning", bson.D{
+			{"training", bson.D{
 				{"image", users.Traning.Images},
 				{"training", users.Traning.NameTraning},
 				{"sequence", users.Traning.Sequence},

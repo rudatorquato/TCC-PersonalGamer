@@ -3,15 +3,15 @@ package models
 import "go.mongodb.org/mongo-driver/bson/primitive"
 
 type Users struct {
-	ID        primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
-	Name      string             `bson:"name" json:"name"`
-	Email     string             `bson:"email" json:"email"`
-	Telephone string             `bson:"telephone" json:"telephone"`
-	Info      string             `bson:"info" json:"info"`
-	TypeUser  string             `bson:"typeuser" json:"typeuser"` // pode ser um bool porem não aparece no bd
-	Username  string             `bson:"username" json:"username"`
+	ID       primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
+	Name     string             `bson:"name" json:"name"`
+	Email    string             `bson:"email" json:"email"`
+	Phone    string             `bson:"phone" json:"phone"`
+	Info     string             `bson:"info" json:"info"`
+	TypeUser string             `bson:"typeuser" json:"typeuser"` // pode ser um bool porem não aparece no bd
+	Username string             `bson:"username" json:"username"`
 
-	Traning  *Traning  `bson:"traning" json:"traning"`
+	Traning  *Traning  `bson:"training" json:"training"`
 	Measures *Measures `bson:"measures" json:"measures"`
 }
 
