@@ -161,6 +161,7 @@ func updateUsers(w http.ResponseWriter, r *http.Request) {
 			{"info", users.Info},
 			{"typeuser", users.TypeUser},
 			{"username", users.Username},
+			{"exp", users.Exp},
 		}},
 	}
 
