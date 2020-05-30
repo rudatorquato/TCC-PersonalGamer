@@ -155,12 +155,12 @@ func updateUsers(w http.ResponseWriter, r *http.Request) {
 
 	update := bson.D{
 		{"$set", bson.D{
-			{"name", users.Name},
-			{"email", users.Email},
-			{"phone", users.Phone},
-			{"info", users.Info},
-			{"typeuser", users.TypeUser},
-			{"username", users.Username},
+			//{"name", users.Name},
+			//{"email", users.Email},
+			//{"phone", users.Phone},
+			//{"info", users.Info},
+			//{"typeuser", users.TypeUser},
+			//{"username", users.Username},
 			{"exp", users.Exp},
 		}},
 	}
@@ -309,14 +309,15 @@ func main() {
 	//Init Router
 	r := mux.NewRouter()
 
-	r.HandleFunc("/personalgamer/users", getUsers).Methods("GET")            //aluno
-	r.HandleFunc("/personalgamer/users/{id}", getUserName).Methods("GET")    //personal
-	r.HandleFunc("/personalgamer/QRCODE/{id}", getUserQrcode).Methods("GET") //personal
+	r.HandleFunc("/personalgamer/users", getUsers).Methods("GET")
+	r.HandleFunc("/personalgamer/users/{id}", getUserName).Methods("GET")
+	r.HandleFunc("/personalgamer/QRCODE/{id}", getUserQrcode).Methods("GET")
 	r.HandleFunc("/personalgamer/users", createUsers).Methods("POST")
 	r.HandleFunc("/personalgamer/users/measures/{id}", updateMeasures).Methods("PUT")
-	r.HandleFunc("/personalgamer/users/traning/{id}", updateTraning).Methods("PUT") //personal
-	r.HandleFunc("/personalgamer/users/{id}", updateUsers).Methods("PUT")           //personal
-	r.HandleFunc("/personalgamer/users/{id}", deleteUsers).Methods("DELETE")        //personal
+	r.HandleFunc("/personalgamer/users/traning/{id}", updateTraning).Methods("PUT")
+	r.HandleFunc("/personalgamer/users/{id}", updateUsers).Methods("PUT")
+	//r.HandleFunc("/personalgamer/users/exp/{id}", updateUsers).Methods("PATCH")
+	r.HandleFunc("/personalgamer/users/{id}", deleteUsers).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":8000", r))
 
